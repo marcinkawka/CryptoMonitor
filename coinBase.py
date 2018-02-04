@@ -70,9 +70,14 @@ print("CoinBase\t %5.2f \t %5.2f \t %5.2f" %(cb_eth_eur.get_buy_price(),	cb_btc_
 print("\t\t %5.2f \t %5.2f \t %5.2f" % (cb_eth_eur.get_sell_price(),	cb_btc_eur.get_sell_price(),		cb_ltc_eur.get_sell_price() ))
 print('-' * 100)
 print("BitBay \t\t %5.2f \t %5.2f \t %5.2f" %(bb_eth_eur.get_buy_price(),	bb_btc_eur.get_buy_price(),		bb_ltc_eur.get_buy_price()))
-print("\t\t %5.2f" %(bb_eth_eur.get_buy_price()))
+print("\t\t %5.2f \t %5.2f \t %5.2f" % (bb_eth_eur.get_sell_price(),	bb_btc_eur.get_sell_price(),		bb_ltc_eur.get_sell_price()))
 print('-' * 100)
-print("Sp_buy\t\t %5.2f" %(cb_eth_eur.get_buy_price()-(bb_eth_eur.get_buy_price())) )
-print("Sp_sell\t\t %5.2f" %(cb_eth_eur.get_sell_price()-(bb_eth_eur.get_sell_price())))
+print("Sp_buy\t\t %5.2f\t\t %5.2f\t \t %5.2f" %(	cb_eth_eur.get_buy_price()-bb_eth_eur.get_buy_price(),
+											cb_btc_eur.get_buy_price()-bb_btc_eur.get_buy_price(), 
+											cb_ltc_eur.get_buy_price()-bb_ltc_eur.get_buy_price() 	)) 
+
+print("Sp_sell\t\t %5.2f\t\t %5.2f\t\t %5.2f" %(	cb_eth_eur.get_sell_price()-bb_eth_eur.get_sell_price(),
+												cb_btc_eur.get_sell_price()-bb_btc_eur.get_sell_price(), 
+												cb_ltc_eur.get_sell_price()-bb_ltc_eur.get_sell_price() )) 
 
 print("")

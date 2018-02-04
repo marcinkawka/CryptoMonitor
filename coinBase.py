@@ -47,10 +47,21 @@ cb_ltc_eur.set_sell_price(client.get_sell_price(currency_pair='LTC-EUR')['amount
 
 j = urllib2.urlopen('https://bitbay.net/API/Public/ETHEUR/ticker.json')
 j_obj = json.load(j)
-
 bb_eth_eur=Currency_pair("ETHEUR")
 bb_eth_eur.set_buy_price(j_obj['ask'])
 bb_eth_eur.set_sell_price(j_obj['bid'])
+
+j = urllib2.urlopen('https://bitbay.net/API/Public/BTCEUR/ticker.json')
+j_obj = json.load(j)
+bb_btc_eur=Currency_pair("BTCEUR")
+bb_btc_eur.set_buy_price(j_obj['ask'])
+bb_btc_eur.set_sell_price(j_obj['bid'])
+
+j = urllib2.urlopen('https://bitbay.net/API/Public/LTCEUR/ticker.json')
+j_obj = json.load(j)
+bb_ltc_eur=Currency_pair("LTCEUR")
+bb_ltc_eur.set_buy_price(j_obj['ask'])
+bb_ltc_eur.set_sell_price(j_obj['bid'])
 
 
 print("\t\t|ETHEUR \t| BTCEUR \t| LTCEUR")
@@ -58,7 +69,7 @@ print('-' * 100)
 print("CoinBase\t %5.2f \t %5.2f \t %5.2f" %(cb_eth_eur.get_buy_price(),	cb_btc_eur.get_buy_price(),		cb_ltc_eur.get_buy_price() ))
 print("\t\t %5.2f \t %5.2f \t %5.2f" % (cb_eth_eur.get_sell_price(),	cb_btc_eur.get_sell_price(),		cb_ltc_eur.get_sell_price() ))
 print('-' * 100)
-print("BitBay \t\t %5.2f" %(bb_eth_eur.get_buy_price()))
+print("BitBay \t\t %5.2f \t %5.2f \t %5.2f" %(bb_eth_eur.get_buy_price(),	bb_btc_eur.get_buy_price(),		bb_ltc_eur.get_buy_price()))
 print("\t\t %5.2f" %(bb_eth_eur.get_buy_price()))
 print('-' * 100)
 print("Sp_buy\t\t %5.2f" %(cb_eth_eur.get_buy_price()-(bb_eth_eur.get_buy_price())) )
